@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Completing Side-Projects"
+description: "Sharing some experience on struggle with procrastination and motivation"
+date: 2017-08-04
+tags: [lifestyle-programming, side-projects]
+comments: false
+share: true
+---
+
+I’ve been reading countless comments/posts/articles on programmers struggling to finish side-projects. You might know how it is – you start a new project, you’re all excited about it, you lay out a foundation, you sketch your UI or architecture (if that’s your thing), you’re on fire. Fast forward a few days/weeks/months later you’re on Reddit instead of working on your side project, and of course you feel guilty about it. You can’t help it – you either hit a wall, or you’re just not “feeling it” anymore. The worst for me is when I’m about to tackle a hard problem thinking that I don’t really have the time for it at that very moment. As in, the problem might require hours of uninterrupted concentration (at least for my simple mind), and it’s usually not the “right day” for such a time investment. All of these are things that I’ve been struggling with myself, but I found an effective method that works for me (and might work for you).
+
+Now, I’m only trying to address issues with procrastination or losing motivation, not the struggle to find time – I think that’s an entirely different subject and one that I often face myself.
+
+One thing that seems to be working for me is to (and I know this probably sounds stupid) … just do it. I try to sit down and write some code every day. Sometimes it’s something really small, enough to not feel like “cheating” (i.e. – today I didn’t just rename a variable or added a comment). I think of this as a programming streak of some sort and I try to stay on the streak and not breaking it. For some reason it feels awesome. There is another bonus effect as a result of this – most of the times you really get “in the zone”. I often find myself opening the side project and just think “what can I do today that won’t take me a long time?”, then I find something relatively small to work on and I get into it. Sometimes it’s just 30 mins or an hour, but other times I find myself coding for a much longer time (hours) even though I had no intention that day or wasn’t feeling like it just a while ago.
+
+The thing about procrastination is that the solutions always seem to be very obvious, I mean, you know – just do some work yo. For some reason though, it’s not an easy thing to overcome. The method that I use works for me. Forcing myself to work on the side project every day – makes it a bit of a game. You don’t wanna break your streak. You feel a bit of a pressure. When you start “winning” at your game and produce a good amount of work, you feel like a boss. It also helps with breaking problems down, since you always seek a small bit of code to work on. I find that it tends to lead to a better structured code base.
+
+Another thing that I do now, is to stop gold-plating shit. That’s a bit related to my [previous post](/2017-01-22/what-does-it-take-to-be-a-good-programmer/). I try to move fast, I stopped obsessing about the “architecture” and the “perfect solution”, I just do stuff that seem OK at the moment and move on. Remember, visiting your codebase everyday trying to look for a small bit of work to do – you can (you should!) refactor some old code and improve it, but it’s fine if you leave it the way it is right now. I’m not advocating doing a mess, but if you’re anything like me (or rather – the “me” that I’m trying to get rid of) you’re obsessing a bit too much. Nothing is perfect – and that’s ok.
+
+In addition to all that – something that proves useful to me is to keep some sort of a journal of my project. I plan and note things down a lot. I rarely check my notes after the fact (sometimes I do), but for some reason, writing something down helps me come to better solutions and it puts me in the right state of mind. Give it a shot, might help you as well.
+
+As a final note – it’s absolutely fine if you don’t work on any side projects. I’m not in the camp that believes that if you don’t do it, you’re not a “real programmer”. That’s IMHO a lot of BS. Don’t add unnecessary stress to your life – do what makes you happy. Me, personally, I do it because I think it’s cool and I just want to do it. I have ideas for projects that will be useful to me and I really want to see them come to fruition. I love the feeling of “shipping it”, or you know just solving something a bit more challenging, or optimizing something that was kinda crap. I love the freedom of choosing the technology stack that I want, as well as to learn things that I normally wouldn’t get the chance to. Expand my horizons. I still get back the feeling that I was getting from programming when I was younger, outside of the boring corporate “machine”. I do enjoy it, even though it’s tough sometimes and the burnout is real.
+
+I hope someone finds this useful. Try to stay positive, and again – do what makes you happy.

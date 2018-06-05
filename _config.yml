@@ -23,12 +23,12 @@ author:
   email:            dimitrov2k@gmail.com
 
 copyright:
-  year:             2017
+  year:             2018
   name:             Dimitar Dimitrov
 
 # Google-analytics
-google-analytics:
-  id:               "UA-104149938-1"
+# google-analytics:
+#   id:               "UA-104149938-1"
 
 # Disqus
 disqus:

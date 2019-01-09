@@ -1,3 +1,3 @@
-# Dimitar Dimitrov on Coding
+# Dimitar Dimitrov's Coding Blog
 
 Personal blog source code

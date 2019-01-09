@@ -1,3 +1,3 @@
-# Dimitar's Coding Blog
+# Dimitar's Coding Bits
 
 Personal blog source code

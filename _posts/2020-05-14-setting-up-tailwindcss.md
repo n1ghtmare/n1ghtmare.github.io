@@ -180,6 +180,18 @@ module.exports = {
 
 ```
 
+In addition I had to modify the `tailwind.css` so that PurgeCSS would [ignore some base tailwind styles](https://tailwindcss.com/docs/controlling-file-size/#setting-up-purgecss-manually). 
+
+```css
+/* purgecss start ignore */
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+/* purgecss end ignore */
+
+@import "tailwindcss/utilities";
+```
+
 If I now run this again:
 
 ```

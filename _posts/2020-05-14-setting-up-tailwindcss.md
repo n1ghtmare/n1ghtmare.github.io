@@ -97,7 +97,7 @@ module.exports = {
 
 Now that purging is configured, I modified my `package.json` to incorporate tailwind into my build:
 
-```json
+```js
 {
     //...
     "scripts": {
@@ -256,7 +256,7 @@ The output file was purged and minimized (and tiny! - about 4KB down from 12KB).
 
 One thing left to do was to modify my `package.json` to use the `postcss-cli` rather than the `tailwind-cli`:
 
-```json
+```js
 {
     //...
     "scripts": {

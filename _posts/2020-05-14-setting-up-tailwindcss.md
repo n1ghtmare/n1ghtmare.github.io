@@ -117,7 +117,7 @@ A way to fix this is to backtrack a little bit remove purging from the `tailwind
 
 I referred to the official tailwind [documentation](https://tailwindcss.com/docs/controlling-file-size/#setting-up-purgecss-manually). 
 
-First, I installed the `postcss-cli` tools as well as `autoprefixer` (which is a postcss plugin that automatically adds vendor prefixes (`-moz-`, `-webkit-` etc.) to css classes:
+First, I installed the `postcss-cli` tools as well as `autoprefixer` (which is a postcss plugin that automatically adds vendor prefixes (`-moz-`, `-webkit-` etc.) to css classes):
 
 ```
 npm install --save-dev postcss-cli autoprefixer

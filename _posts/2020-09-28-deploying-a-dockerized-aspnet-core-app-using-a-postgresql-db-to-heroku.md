@@ -77,24 +77,26 @@ I proceeded by changing my web host builder to read the `$PORT` environment vari
 ```cs
 public class Program {
     public static void Main(string[] args) {
-        CreateWebHostBuilder(args).Build().Run();
+        CreateHostBuilder(args).Build().Run();
     }
 
-    private static bool IsDevelopment => 
+    private static bool IsDevelopment =>
         Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
-
-    public static string HostPort => 
-        IsDevelopment 
-            ? "5000" 
+        
+    public static string HostPort =>
+        IsDevelopment
+            ? "5000"
             : Environment.GetEnvironmentVariable("PORT");
 
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseUrls($"http://+:{HostPort}")
-            .UseSerilog((context, config) => {
-                config.ReadFrom.Configuration(context.Configuration);
-            })
-            .UseStartup<Startup>();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults((webBuilder) => {
+                webBuilder.UseUrls($"http://+:{HostPort}");
+                webBuilder.UseSerilog((context, config) => {
+                    config.ReadFrom.Configuration(context.Configuration);
+                });
+                webBuilder.UseStartup<Startup>();
+            });
 }
 ```
 

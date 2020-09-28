@@ -16,6 +16,22 @@ First I created an app on Heroku and then added Heroku-Postgres as a resource to
 
 In addition, I wanted to deploy the application automatically from a specific git branch on Github (where I have the source code for the application). Heroku is really cool and has the option to integrate with Github. You can find that option under "Deploy" -> "Deployment Method" and select Github, then follow the steps to finish the connection.
 
+Next I downloaded the Heroku CLI and set my application stack to be a `container`, by running: 
+
+```
+heroku stack:set container
+```
+
+Finally I've created a `heroku.yml` config file that just has the following:
+
+```yaml
+build:
+    docker:
+        web: Dockerfile
+```
+
+This is so that Heroku knows how to build the application when deploying (more details (here)[https://devcenter.heroku.com/articles/build-docker-images-heroku-yml]).
+
 Now that I had the Heroku setup done and I moved on to setting up my application.
 
 The first thing I did, is change how my database connection string is retrieved on production (I have this `ConfigurationService` that I use across my application):

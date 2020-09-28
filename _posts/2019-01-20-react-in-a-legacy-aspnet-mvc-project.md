@@ -3,7 +3,7 @@ layout: post
 title: "React in a legacy ASP.NET MVC project"
 description: "Integrating React into a ASP.NET MVC 5 legacy project"
 date: 2019-01-20
-tags: [programming, react, javascript, asp.net mvc, c#, webpack]
+tags: [programming, react, javascript, asp.net, mvc, c#, webpack]
 comments: false
 share: true
 ---

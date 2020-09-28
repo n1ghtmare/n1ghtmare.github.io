@@ -97,7 +97,7 @@ module.exports = {
 
 Now that purging is configured, I modified my `package.json` to incorporate tailwind into my build:
 
-```json
+```js
 {
     //...
     "scripts": {
@@ -117,7 +117,7 @@ A way to fix this is to backtrack a little bit remove purging from the `tailwind
 
 I referred to the official tailwind [documentation](https://tailwindcss.com/docs/controlling-file-size/#setting-up-purgecss-manually). 
 
-First, I installed the `postcss-cli` tools as well as `autoprefixer` (which is a postcss plugin that automatically adds vendor prefixes (`-moz-`, `-webkit-` etc.) to css classes:
+First, I installed the `postcss-cli` tools as well as `autoprefixer` (which is a postcss plugin that automatically adds vendor prefixes (`-moz-`, `-webkit-` etc.) to css classes):
 
 ```
 npm install --save-dev postcss-cli autoprefixer
@@ -256,7 +256,7 @@ The output file was purged and minimized (and tiny! - about 4KB down from 12KB).
 
 One thing left to do was to modify my `package.json` to use the `postcss-cli` rather than the `tailwind-cli`:
 
-```json
+```js
 {
     //...
     "scripts": {

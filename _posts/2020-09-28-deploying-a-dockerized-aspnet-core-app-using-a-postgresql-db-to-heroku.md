@@ -30,7 +30,7 @@ build:
         web: Dockerfile
 ```
 
-This is so that Heroku knows how to build the application when deploying (more details (here)[https://devcenter.heroku.com/articles/build-docker-images-heroku-yml]).
+This is so that Heroku knows how to build the application when deploying (more details [here](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml)).
 
 Now, that I had the Heroku setup done and I moved on to setting up my application.
 

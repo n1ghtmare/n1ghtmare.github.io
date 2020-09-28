@@ -16,13 +16,13 @@ First I created an app on Heroku and then added Heroku-Postgres as a resource to
 
 In addition, I wanted to deploy the application automatically from a specific git branch on Github (where I have the source code for the application). Heroku is really cool and has the option to integrate with Github. You can find that option under "Deploy" -> "Deployment Method" and select Github, then follow the steps to finish the connection.
 
-Next I downloaded the Heroku CLI and set my application stack to be a `container`, by running: 
+Next, I downloaded the Heroku CLI and set my application stack to be a `container`, by running: 
 
 ```
 heroku stack:set container
 ```
 
-Finally I've created a `heroku.yml` config file that just has the following:
+Finally, I've created a `heroku.yml` config file that just has the following:
 
 ```yaml
 build:
@@ -32,7 +32,7 @@ build:
 
 This is so that Heroku knows how to build the application when deploying (more details (here)[https://devcenter.heroku.com/articles/build-docker-images-heroku-yml]).
 
-Now that I had the Heroku setup done and I moved on to setting up my application.
+Now, that I had the Heroku setup done and I moved on to setting up my application.
 
 The first thing I did, is change how my database connection string is retrieved on production (I have this `ConfigurationService` that I use across my application):
 
@@ -68,9 +68,9 @@ public class ConfigurationService : IConfigurationService {
 }
 ```
 
-Now my application will use the connection string from the Environment variable when deployed to production.
+Now, my application will use the connection string from the Environment variable when deployed to production.
 
-At this point I thought everything is good, deployed, tested and became dissapointed by the big fat error on production. Turns out that Heroku assigns a port for your container to run on dynamically (remember the Heroku Platform variables mentioned earlier).
+At this point, I thought everything is good, deployed, tested and became dissapointed by the big fat error on production. Turns out that Heroku assigns a port for your container to run on dynamically (remember the Heroku Platform variables mentioned earlier).
 
 I proceeded by changing my web host builder to read the `$PORT` environment variable on production, as follows:
 
@@ -138,4 +138,4 @@ I have setup for Node, since I'm having a React front end with this app, and I h
 
 The last thing I did was to setup [Serilog](https://serilog.net/) (as you can see in the `Program.cs`) to only log into console (you can see those logs in Heroku), rather than a file.
 
-At this point I deployed, and everything worked as expected.
+At this point, I deployed and everything worked as expected.

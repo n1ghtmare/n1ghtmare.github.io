@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Write your own keyboard shortcuts handler in typescript"
-description: "In this post we'll look at a way to write your own keyboard shortcuts handler that will capture user input and execute callbacks, as needed"
+title: "Implement a keyboard shortcuts handler in typescript"
+description: "In this post we'll look at a way to write your own keyboard shortcuts handler (similar to hotkeys.js), that will capture user input and execute callbacks, as needed"
 date: 2022-01-14
 tags: [programming, typescript, javascript, tutorial]
 comments: false
@@ -80,7 +80,7 @@ function createScopeIfNeeded(scopeName: string) {
     return newScope;
 }
 ```
-If there is no scope defined we create one with to hold our (still empty) tree structure. So far so good.
+If there is no scope defined we create one to hold our (still empty) tree structure. So far so good.
 
 Another thing we'll need is to process the input of the user when registering a hotkey, here is how this might look like:
 

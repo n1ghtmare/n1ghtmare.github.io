@@ -99,9 +99,9 @@ You might notice 2 things here, `normalizeKey(key)` and the `sort()` that we do.
 
 ```typescript
 function normalizeKey(hotkey: string) {
-    // make all keys lower before
-    hotkey = hotkey.trim().toLowerCase();
-    switch (hotkey) {
+    hotkey = hotkey.trim();
+
+    switch (hotkey.toLowerCase()) {
         case "esc":
             return "escape";
         case "ctrl":
@@ -258,6 +258,18 @@ function createKeydownListener(debounceTimeInMilliseconds: number) {
 
         resetCurrentNodeDebounced();
 
+        // Ignore shift since we will destinguish between a and A or / and ? (for example)
+        // Ignore OS, we will not be making combinations with OS
+        // Also look for repeated buffer keys - shouldn't happen
+        // A user can't press and hold the same button twice
+        if (
+            e.key === "Shift" ||
+            e.key === "OS" ||
+            buffer.filter((x) => x === normalizeKey(e.key)).length !== 0
+        ) {
+            return;
+        }
+
         // push the pressed key to a buffer (after we normalize it)
         // we remove entries from the buffer on keyup
         // so the buffer is used only for key combinations
@@ -287,7 +299,7 @@ function createKeydownListener(debounceTimeInMilliseconds: number) {
     };
 }
 ```
-Here we're building a key press buffer and we're traversing the tree to look for matches. If we find a match that has a callback, it means we're at a leaf node and we execute the callback and reset the current node. If we do get a match, but there is no callback defined we continue traversing the tree until we find one. If nothing is found, we reset the current node back to the root. Also notice that the buffer is sorted and joined with a `+`, this is because the only reason we store anything in the buffer is for when a user pressed a combination of keys and holds them. Upon a `keyup` we clear the buffer.
+Here we're building a key press buffer and we're traversing the tree to look for matches. If we find a match that has a callback, it means we're at a leaf node and we execute the callback and reset the current node. If we do get a match, but there is no callback defined we continue traversing the tree until we find one. If nothing is found, we reset the current node back to the root. Also notice that the buffer is sorted and joined with a `+`, this is because the only reason we store anything in the buffer is for when a user pressed a combination of keys and holds them. Upon a `keyup` we clear the buffer. Another thing of note is that we ignore the Shift key, because we can clearly distinguish between `a` and `A` for example or `/` and `?` (so instead of the user registering a hotkey `shift+a`, they could simply do `A`). We also ignore OS, because I don't want to hijack the OS shortcuts as this could get messy.
 
 Here is the `keyup` listener:
 
@@ -299,7 +311,7 @@ function createKeyupListener() {
 
         const scope: HotkeyScope = scopeMap.get(currentScopeName);
 
-        if (scope && buffer.length === 0) {
+        if (scope && buffer.length === 0 && scope.currentNode === null) {
             // no keys are held, reset the current node back to the root
             scope.currentNode = scope.root;
         }

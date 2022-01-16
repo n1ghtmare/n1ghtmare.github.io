@@ -101,6 +101,10 @@ You might notice 2 things here, `normalizeKey(key)` and the `sort()` that we do.
 function normalizeKey(hotkey: string) {
     hotkey = hotkey.trim();
 
+    if (hotkey.length === 1) {
+        return hotkey;
+    }
+
     switch (hotkey.toLowerCase()) {
         case "esc":
             return "escape";
@@ -109,7 +113,7 @@ function normalizeKey(hotkey: string) {
         case "option":
             return "alt";
         default:
-            return hotkey;
+            return hotkey.toLowerCase();
     }
 }
 ```

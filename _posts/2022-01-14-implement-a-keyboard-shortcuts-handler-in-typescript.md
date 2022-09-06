@@ -105,7 +105,10 @@ function normalizeKey(hotkey: string) {
         return hotkey;
     }
 
-    switch (hotkey.toLowerCase()) {
+    // we normalize "special" keys to be lowercase
+    hotkey = hotkey.toLowerCase();
+
+    switch (hotkey) {
         case "esc":
             return "escape";
         case "ctrl":
@@ -113,7 +116,7 @@ function normalizeKey(hotkey: string) {
         case "option":
             return "alt";
         default:
-            return hotkey.toLowerCase();
+            return hotkey;
     }
 }
 ```

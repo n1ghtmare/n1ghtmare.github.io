@@ -51,7 +51,7 @@ impl Renderable for Markdown {
 
 ## Static Dispatch
 
-Static dispatch (which in Rust happens through [monomorphization](https://en.wikipedia.org/wiki/Monomorphization)), occurs when the function or method to be called is determined at compile time. In Rust, this happens when the type information is known during compilation. It's efficient since the compiler can optimize the generated code for specific types. It can be done with trait bounds:
+Static dispatch (which happens through [monomorphization](https://en.wikipedia.org/wiki/Monomorphization)), occurs when the function or method to be called is determined at compile time. In Rust, this happens when the type information is known during compilation. It's efficient since the compiler can optimize the generated code for specific types. It can be done with trait bounds:
 
 ```rust
 fn static_render<T: Renderable>(x: &T) {

@@ -4,6 +4,7 @@
 
 # Basic
 name:               "Dimitar's Coding Bits"
+title:              "Dimitar's Coding Bits"
 
 author:
   # facebook:         your-id
@@ -23,16 +24,16 @@ author:
   email:            dimitrov2k@gmail.com
 
 copyright:
-  year:             2022
+  year:             2023
   name:             Dimitar Dimitrov
 
 # Google-analytics
-google-analytics:
-  id:               "UA-104149938-1"
+# google-analytics:
+#   id:               "UA-104149938-1"
 
 # Disqus
-disqus:
-  id:               "dimitars-coding-bits"
+# disqus:
+#   id:               "dimitars-coding-bits"
 
 # URL
 url:                "https://n1ghtmare.github.io" # the base hostname & protocol for your site

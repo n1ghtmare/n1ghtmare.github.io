@@ -16,7 +16,7 @@ Rust supports dynamic dispatch by utilizing traits.
 
 Before we proceed, let's present some code which we will use as a base for the rest of this post.
 
-We start with the following trait:
+We'll start with the following trait:
 
 ```rust
 trait Renderable {
@@ -24,7 +24,7 @@ trait Renderable {
 }
 ```
 
-We will proceed to implement this trait:
+We will proceed by implementing this trait:
 
 ```rust
 struct HTML {

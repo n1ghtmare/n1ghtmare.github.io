@@ -117,6 +117,26 @@ fn main() {
 
 In the `dynamic_render` function, the `x` parameter is of type `&dyn Renderable` which is a trait object. The method calls are resolved at runtime using a virtual function table ([vtable](https://en.wikipedia.org/wiki/Virtual_method_table)).
 
-In scenarios where you don't know the exact types at compile time or want to work with a variety of types through a common interface, dynamic dispatch using trait objects becomes necessary. For instance, if you're dealing with dynamically loaded plugins or user-defined types, static dispatch might not be practical. 
+In scenarios where you don't know the exact types at compile time or want to work with a variety of types through a common interface, dynamic dispatch using trait objects becomes necessary. For instance, if you're dealing with different types that implement a trait and are in a collection, dynamic dispatch is needed.
 
+Here is an example, using the types from earlier:
 
+```rust
+fn main() {
+    let html_renderer = Box::new(HTML {
+        content: String::from("<h1>Hello</h1>"),
+    });
+
+    let markdown_renderer = Box::new(Markdown {
+        content: String::from("# Hi"),
+    });
+
+    let renderers: Vec<Box<dyn Renderable>> = vec![html_renderer, markdown_renderer];
+
+    for r in renderers {
+        r.render();
+    }
+}
+```
+
+When we're iterating in the `for` and calling `r.renderer()` the compiler can't know whether we're calling `HTML::render()` or `Markdown::render()`, they both have different addresses and bodies. `HTML::render()` and `Markdown::render()` are therefore totally different functions, but you can store an `HTML` and a `Markdown` together in the same collection. A vtable (and dynamic dispatch) is necessary in this case in order to determine which method to call based on wheter it's an `HTML` or a `Markdown`.

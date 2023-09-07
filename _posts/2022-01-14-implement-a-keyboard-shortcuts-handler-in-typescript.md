@@ -394,5 +394,5 @@ I added an optional parameter for defining different debounce timing before rese
 
 One limitation of this implementation is that sequences take precedence over combinations, so for example if we have `a b` defined, we can't define a combination starting with `a` such as `a+c`, because we always find a match for the key that is currently pressed in the tree. This works really well for my project, but it's a limitation nevertheless.
 
-I hope this post/tutorial was useful, I had a lot of time writing this code and I thought I'd share. At some point I will open source this and package it into its own library when I get the time to write some documentation and tests for it.
+I hope this post/tutorial was useful, I had a lot of fun writing this code and I thought I'd share. At some point I will open source this and package it into its own library when I get the time to write some documentation and tests for it.
 

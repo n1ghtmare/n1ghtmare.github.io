@@ -8,7 +8,7 @@ comments: false
 share: true
 ---
 
-Greetings fellow Rust enthusiasts 🦀! 
+Greetings fellow Rustaceans 🦀! 
 
 In this short post, I'll try to present a series of succint yet hopefully comprehensive examples of pattern matching in Rust.
 
@@ -42,12 +42,12 @@ fn main() {
 Here is how we can do pattern matching on structs:
 
 ```rust
-fn main() {
-    struct Point {
-        x: i32,
-        y: i32,
-    }
+struct Point {
+    x: i32,
+    y: i32,
+}
 
+fn main() {
     let my_point = Point { x: 42, y: 24 };
 
     match my_point {
@@ -64,13 +64,13 @@ fn main() {
 In pattern matching, enums shine by providing a structured way to handle the different cases. The example showcases the handling of different variants of the `Message` enum:
 
 ```rust
-fn main() {
-    enum Message {
-        Greeting(String),
-        Farewell,
-        Custom(String, i32),
-    }
+enum Message {
+    Greeting(String),
+    Farewell,
+    Custom(String, i32),
+}
 
+fn main() {
     let my_message = Message::Custom(String::from("Salutations"), 42);
 
     match my_message {
@@ -180,12 +180,12 @@ fn main() {
 Here we revisit the `@` to ephasize its utility in capturing specific values within patterns providing a refined and precise approach to matching:
 
 ```rust
-fn main() {
-    struct Person {
-        name: String,
-        age: u32,
-    }
+struct Person {
+    name: String,
+    age: u32,
+}
 
+fn main() {
     let my_person = Person {
         name: String::from("Alice"),
         age: 30,

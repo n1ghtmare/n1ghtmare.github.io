@@ -56,7 +56,7 @@ pub struct Paginator {
 
 Simple, right? This struct will help us navigate through our pages effectively.
 
-### Safe construction with `try_new`
+### Safe construction with try_new
 
 To get things rolling, we'll need a way to safely create an instance of our
 `Paginator`. This is where `try_new` comes into play, performing some essential
@@ -68,13 +68,17 @@ impl Paginator {
         if page == 0 {
             return Err("Page number must be greater than 0".to_string());
         }
+
         if per_page == 0 {
             return Err("Items per page must be greater than 0".to_string());
         }
+
         let total_pages = (items_total_count + per_page - 1) / per_page;
+
         if page > total_pages && total_pages > 0 {
             return Err(format!("The page {} is greater than the total number of pages", page));
         }
+
         Ok(Self { total_pages, page })
     }
 }
@@ -130,7 +134,7 @@ compensate.
 the very beginning or the end is at the last page, ensuring that the pagination
 display is always logical and user-friendly.
 
-### Bringing it all together: The `paginate` method
+### Bringing it all together: The paginate method
 
 Finally, we put all the pieces together in the `paginate` method. This is where
 we build the actual list of pagination items to display, based on the current
@@ -579,7 +583,6 @@ First we have a paginate the data in the backend in an axum handler and pass it
 down to an askama template. It would look something like (contrived example):
 
 ```rust
-
 #[derive(Template)]
 #[template(path = "views/posts.html")]
 pub struct PostsView {
@@ -597,11 +600,11 @@ This is the axum handler for posts:
 /// Query parameters for the paginator
 #[derive(Deserialize)]
 pub struct PaginatorQuery {
-    pub page: Option<u8>,
+    pub page: Option<usize>,
 }
 
 // Number of items per page, this could also be dynamic as a query param for example
-const PER_PAGE: u8 = 10;
+const PER_PAGE: usize = 10;
 
 pub async fn show_posts(
     Query(query): Query<PaginatorQuery>,
@@ -611,9 +614,9 @@ pub async fn show_posts(
     let posts: Page<Post> = get_posts_paginated(page, PER_PAGE).await?;
 
     let mut paginator = Paginator::try_new(
-        posts.total_count.unwrap_or(0) as usize,
-        PER_PAGE as usize,
-        page as usize,
+        posts.total_count.unwrap_or(0),
+        PER_PAGE,
+        page,
     )
     .map_err(|error| {
         error!(?error, "Failed to create paginator");

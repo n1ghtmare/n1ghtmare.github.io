@@ -8,7 +8,7 @@ comments: false
 share: true
 ---
 
-Greetings fellow Rustaceans 🦀! 
+Greetings fellow Rustaceans 🦀!
 
 Today, I'll be diving into how to build a handy pagination system in Rust - a
 feature that's essential for any application with a lot of data to display,
@@ -545,7 +545,7 @@ mod tests {
             // We expect an error to be returned
             let err = Paginator::try_new(100, 10, 11).unwrap_err();
 
-            assert_eq!(err, "The page 11 is greater than the total number pages");
+            assert_eq!(err, "The page 11 is greater than the total number of pages");
         }
 
         #[test]
@@ -577,7 +577,7 @@ mod tests {
 In the project that I work on, we use [axum](https://github.com/tokio-rs/axum)
 with [askama](https://github.com/djc/askama). Please, note that I won't go into
 details of how axum or askama work in this blog post, since it's outside of the
-scope. I use this paginator in askama, this is how it is wired up. 
+scope. I use this paginator in askama, this is how it is wired up.
 
 First we have a paginate the data in the backend in an axum handler and pass it
 down to an askama template. It would look something like (contrived example):
@@ -693,7 +693,7 @@ askama partial template:
 As you can imagine the wiring was pretty simple, we just handle the case for
 each of the different variants of `PaginatorItem` and we add some styling (in
 this case `tailwindcss`).
-    
+
 
 ### Conclusion
 
